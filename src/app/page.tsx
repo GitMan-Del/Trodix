@@ -7,7 +7,7 @@ import UserAvatars from "./Components/UserAvatars";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 z-20 animation-float">
         <Image
           src="/Frame 9.png"
