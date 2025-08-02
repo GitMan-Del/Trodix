@@ -37,10 +37,11 @@ export default function UserAvatars() {
     }
   ];
 
+  // Add link and ariaLabel for sponsors
   const sponsors = [
-    { src: "/images/s1.png", alt: "1" },
-    { src: "/images/s2.png", alt: "2" },
-    { src: "/images/s3.png", alt: "3" }
+    { src: "/images/s1.png", alt: "1", link: "https://www.instagram.com/tutuianuliviu_dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", ariaLabel: "Sponsor 1" },
+    { src: "/images/s2.png", alt: "2", link: "https://www.instagram.com/fxmasterstrading?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", ariaLabel: "Sponsor 2" },
+    { src: "/images/s3.png", alt: "3", link: "https://www.instagram.com/masterswebcom/", ariaLabel: "Sponsor 3" }
   ];
 
   return (
@@ -78,8 +79,12 @@ export default function UserAvatars() {
           {sponsors.map((sponsor, index) => (
             <span
               key={index}
+              onClick={() => window.open(sponsor.link, "_blank")}
               className="inline-block hover:z-40 cursor-pointer hover:scale-105 transition-transform duration-150"
               style={{ transition: "transform 0.15s" }}
+              tabIndex={0}
+              role="button"
+              aria-label={sponsor.ariaLabel}
             >
               <Image
                 src={sponsor.src}
