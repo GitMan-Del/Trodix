@@ -72,7 +72,12 @@ export default function Home() {
             <div className="flex flex-row justify-between px-3">
               <div className="flex flex-row items-center gap-3">
                 <div className="flex flex-row -space-x-3 mb-2">
-                  <Image src="/images/1.png" alt="1" width={40} height={40} className="rounded-full" />
+                  <a href="https://www.instagram.com/1a.darius?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+
+                  <Image src="/images/1.jpg" alt="1" width={40} height={40} className="rounded-full" />
+                  
+                  </a>
+                  
                   <Image src="/images/2.png" alt="2" width={40} height={40} className="rounded-full" />
                   <Image src="/images/3.png" alt="3" width={40} height={40} className="rounded-full" />
                   <Image src="/images/4.png" alt="4" width={40} height={40} className="rounded-full" />
