@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${protestStrike.variable} ${poppins.variable} antialiased bg-background max-w-[1920px] mx-auto`}>
+      <body className={`${protestStrike.variable} ${poppins.variable} antialiased bg-background`}>
         {children}
       </body>
     </html>
