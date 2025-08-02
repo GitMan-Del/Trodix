@@ -1,103 +1,117 @@
+import Link from "next/link";
+import Navbar from "./Components/navbar";
 import Image from "next/image";
+import Footer from "./Components/footer";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="flex flex-col min-h-screen">
+      <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 z-20 animation-float">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/Frame 9.png"
+          alt="a"
+          width={250}
+          height={100}
+          unoptimized
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      </div>
+      <div className="absolute top-1/2 -left-10 w-[220px] h-[80px] rounded-2xl -rotate-12 z-20 animation-float">
+        <Image
+          src="/Frame 10.png"
+          alt="a"
+          width={250}
+          height={100}
+          unoptimized
+        />
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Zona cu backgroundul cu puncte */}
+      <div
+        className="relative max-w-[98%] mx-5 my-5 h-[120vh] --border rounded-2xl flex flex-col justify-center overflow-hidden"
+        style={{
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><circle cx='1' cy='1' r='1' fill='%231E1E1E' fill-opacity='0.3' /></svg>")`
+        }}
+      >
+        <div className="absolute -top-3 left-1/4 w-[220px] h-[80px] rounded-2xl rotate-12 z-0 animation-float">
+          <Image
+            src="/Frame 9-1.png"
+            alt="a"
+            width={250}
+            height={100}
+            unoptimized
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        {/* Mask pentru a nu permite contentului sa iasa din background */}
+        <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between z-10">
+          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/2 z-10 -right-20 pointer-events-none"></div>
+          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/3 z-10 -right-20 pointer-events-none"></div>
+          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/3 z-10 -left-20 pointer-events-none"></div>
+          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/4 z-10 -left-20 pointer-events-none"></div>
+          {/* Navbar */}
+          <div className="w-full z-20">
+            <Navbar />
+          </div>
+
+          {/* Main Content */}
+          <div className="w-full text-center mx-auto">
+            <h1 className="text-6xl">
+              A place to track, grow, and trade <br /> <span className="text-prim"> — without the noise</span>.
+            </h1>
+            <p className="max-w-[700px] mx-auto text-sec">
+              Built by traders, not marketers. No upsells. No ads. No distractions. Just real tools to help you become a better trader. Free. Forever.
+            </p>
+            <button className="text-sec text-md mt-5 px-5 py-1 --border rounded-2xl">
+              Get started for free <span className="text-prim">→</span>
+            </button>
+            <p className="text-sec text-sm mt-10">
+              Made By <Link href="https://www.masters-web.com/" className="underline text-prim"> mastersweb.com</Link>
+            </p>
+          </div>
+
+          <div className="w-[60%] mx-auto">
+            <div className="flex flex-row justify-between px-3">
+              <div className="flex flex-row items-center gap-3">
+                <div className="flex flex-row -space-x-3 mb-2">
+                  <Image src="/images/1.png" alt="1" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/2.png" alt="2" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/3.png" alt="3" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/4.png" alt="4" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/5.png" alt="5" width={40} height={40} className="rounded-full" />
+                </div>
+                <p className="text-sec"> <span className="text-prim"> +4M </span> Users</p>
+              </div>
+              <div className="flex flex-row-reverse items-center gap-3">
+                <div className="flex lfex-row -space-x-3 mb-2">
+                  <Image src="/images/s1.png" alt="1" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/s2.png" alt="2" width={40} height={40} className="rounded-full" />
+                  <Image src="/images/s3.png" alt="3" width={40} height={40} className="rounded-full" />
+                </div>
+                <p className="text-sec">Sponosors</p>
+              </div>
+            </div>
+            {/* Imaginea de jos trebuie să rămână în interiorul div-ului */}
+            <div className="w-full flex justify-center items-end overflow-hidden relative z-20">
+              <Image
+                src="/Preview.png"
+                alt="a"
+                property="1"
+                width={2000}
+                height={20000}
+                unoptimized
+                className="object-contain shadow-2xl max-h-[400px] w-auto -mb-1"
+                style={{ maxWidth: "100%", height: "auto" }}
+              />
+            </div>
+            <div className="w-[300px] h-[300px] blur-3xl bg-[#EB00D7]/20 rounded-full absolute bottom-0 z-10 left-48 pointer-events-none"></div>
+            <div className="w-[250px] h-[250px] blur-3xl bg-[#A800EB]/30 rounded-full absolute -bottom-10 z-10 right-52 pointer-events-none"></div>
+          </div>
+        </div>
+        {/* Mask effect: overflow-hidden on parent, all content stays inside rounded border */}
+      </div>
+      {/* Footer jos, inafara backgroundului cu puncte */}
+      <div className="w-full flex justify-center mb-4 z-50">
+        <Footer />
+      </div>
     </div>
   );
 }

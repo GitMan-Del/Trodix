@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2835DE #f0f0f0;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #161D78;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2835DE;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #2d35a7;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  -text: #000000;
+  --border: #C1C1C1;
+  --text-sec: #767676;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
 
+.--border {
+ border: var(--border) 2px solid;
+}
+
+.bg-alb {
+  background-color: var(--background);
+}
+.text-sec {
+  color: var(--text-sec);
+}
+
+.text-prim {
+  background: linear-gradient(180deg, #161D78, #2835DE);
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
+}
+
+button:hover{
+ cursor: pointer;
+}
+
+button{
+  background-color: var(--background);
+  color: var(--text-sec);
+}
+
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins) ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-protest-strike) ;
+}
+
+
+.animation-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
