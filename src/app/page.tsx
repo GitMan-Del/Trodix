@@ -1,7 +1,9 @@
+
 import Link from "next/link";
 import Navbar from "./Components/navbar";
 import Image from "next/image";
 import Footer from "./Components/footer";
+import UserAvatars from "./Components/UserAvatars";
 
 export default function Home() {
   return (
@@ -42,7 +44,7 @@ export default function Home() {
           />
         </div>
         {/* Mask pentru a nu permite contentului sa iasa din background */}
-        <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between z-10">
+        <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between z-[5]">
           <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/2 z-10 -right-20 pointer-events-none"></div>
           <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/3 z-10 -right-20 pointer-events-none"></div>
           <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/3 z-10 -left-20 pointer-events-none"></div>
@@ -69,31 +71,7 @@ export default function Home() {
           </div>
 
           <div className="w-[60%] mx-auto">
-            <div className="flex flex-row justify-between px-3">
-              <div className="flex flex-row items-center gap-3">
-                <div className="flex flex-row -space-x-3 mb-2">
-                  <a href="https://www.instagram.com/1a.darius?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-
-                  <Image src="/images/1.jpg" alt="1" width={40} height={40} className="rounded-full" />
-                  
-                  </a>
-                  
-                  <Image src="/images/2.png" alt="2" width={40} height={40} className="rounded-full" />
-                  <Image src="/images/3.png" alt="3" width={40} height={40} className="rounded-full" />
-                  <Image src="/images/4.png" alt="4" width={40} height={40} className="rounded-full" />
-                  <Image src="/images/5.png" alt="5" width={40} height={40} className="rounded-full" />
-                </div>
-                <p className="text-sec"> <span className="text-prim"> +4M </span> Users</p>
-              </div>
-              <div className="flex flex-row-reverse items-center gap-3">
-                <div className="flex lfex-row -space-x-3 mb-2">
-                  <Image src="/images/s1.png" alt="1" width={40} height={40} className="rounded-full" />
-                  <Image src="/images/s2.png" alt="2" width={40} height={40} className="rounded-full" />
-                  <Image src="/images/s3.png" alt="3" width={40} height={40} className="rounded-full" />
-                </div>
-                <p className="text-sec">Sponosors</p>
-              </div>
-            </div>
+            <UserAvatars />
             {/* Imaginea de jos trebuie să rămână în interiorul div-ului */}
             <div className="w-full flex justify-center items-end overflow-hidden relative z-20">
               <Image

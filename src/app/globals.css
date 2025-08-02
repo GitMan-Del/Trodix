@@ -58,8 +58,13 @@
   display: inline-block;
 }
 
-button:hover{
- cursor: pointer;
+button {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.08);
 }
 
 button{
@@ -91,4 +96,10 @@ h1, h2, h3, h4, h5, h6 {
   100% {
     transform: translateY(0px);
   }
+}
+
+
+.hover:hover{
+  z-index: 40;
+
 }
