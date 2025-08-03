@@ -6,33 +6,33 @@ export default function UserAvatars() {
   const users = [
     {
       src: "/images/1.jpg",
-      alt: "1",
+      alt: "Darius",
       link: "https://www.instagram.com/1a.darius?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       ariaLabel: "Instagram 1a.darius",
       isFirst: true
     },
     {
-      src: "/images/1.jpg",
-      alt: "2",
-      link: "#",
+      src: "/images/2.jpg",
+      alt: "Liviu",
+      link: "https://www.instagram.com/_liviuuu__?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       ariaLabel: "User 2"
     },
     {
-      src: "/images/1.jpg",
-      alt: "3",
-      link: "#",
+      src: "/images/3.jpg",
+      alt: "Antonio",
+      link: "https://www.instagram.com/fxantonioac?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       ariaLabel: "User 3"
     },
     {
-      src: "/images/1.jpg",
-      alt: "4",
-      link: "#",
+      src: "/images/4.jpg",
+      alt: "Ginel",
+      link: "https://www.instagram.com/pascwg?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
       ariaLabel: "User 4"
     },
     {
-      src: "/images/1.jpg",
-      alt: "5",
-      link: "#",
+      src: "/images/5.jpg",
+      alt: "Gabriel",
+      link: "https://www.instagram.com/corneanugabriel2?igsh=MXFzdmo2NXZ4NGJsMQ==",
       ariaLabel: "User 5"
     }
   ];
