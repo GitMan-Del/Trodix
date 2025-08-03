@@ -34,10 +34,6 @@
 }
 
 .text-prim {
-  /* background: linear-gradient(180deg, #161D78, #2835DE);
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  display: inline-block; */
   color: #2835DE;
 }
 

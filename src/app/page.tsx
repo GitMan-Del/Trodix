@@ -7,9 +7,8 @@ import UserAvatars from "./Components/UserAvatars";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen z-30">
-     
-      <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 z-10 animation-float">
+    <div className="flex flex-col min-h-screen">
+      <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 animation-float z-10 pointer-events-none">
         <Image
           src="/Frame 9.png"
           alt="a"
@@ -18,25 +17,23 @@ export default function Home() {
           unoptimized
         />
       </div>
-      <div className="absolute top-1/2 -left-10 w-[220px] h-[80px] rounded-2xl -rotate-12 animation-float">
+      <div className="absolute top-1/2 -left-10 w-[220px] h-[80px] rounded-2xl -rotate-12 animation-float z-10 pointer-events-none">
         <Image
           src="/Frame 10.png"
           alt="a"
           width={250}
           height={100}
           unoptimized
-          className="z-10"
         />
       </div>
 
-      {/* Zona cu backgroundul cu puncte */}
       <div
         className="relative max-w-[98%] md:mx-5 mx-1 my-1 md:my-5 h-[120vh] --border rounded-2xl flex flex-col justify-center overflow-hidden"
         style={{
           backgroundImage: `url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><circle cx='1' cy='1' r='1' fill='%231E1E1E' fill-opacity='0.3' /></svg>")`
         }}
       >
-        <div className="absolute -top-3 left-1/4 w-[220px] h-[80px] rounded-2xl rotate-12 z-0 animation-float">
+        <div className="absolute -top-3 left-1/4 w-[220px] h-[80px] rounded-2xl z-30 rotate-12 animation-float pointer-events-none">
           <Image
             src="/Frame 9-1.png"
             alt="a"
@@ -45,19 +42,16 @@ export default function Home() {
             unoptimized
           />
         </div>
-        {/* Mask pentru a nu permite contentului sa iasa din background */}
         <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between z-[5]">
-          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/2 z-10 -right-20 pointer-events-none"></div>
-          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/3 z-10 -right-20 pointer-events-none"></div>
-          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/3 z-10 -left-20 pointer-events-none"></div>
-          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/4 z-10 -left-20 pointer-events-none"></div>
-          {/* Navbar */}
-          <div className="w-full z-50">
+          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/2  -right-20 pointer-events-none"></div>
+          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/3  -right-20 pointer-events-none"></div>
+          <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/3  -left-20 pointer-events-none"></div>
+          <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/4  -left-20 pointer-events-none"></div>
+          <div className="w-full z-60 relative">
             <Navbar />
           </div>
 
-          {/* Main Content */}
-          <div className="w-full text-center mx-auto z-10">
+          <div className="w-full text-center mx-auto z-40">
             <h1 className="text-6xl">
               A place to track, grow, and trade <br /> <span className="text-prim"> — without the noise</span>.
             </h1>
@@ -74,7 +68,6 @@ export default function Home() {
 
           <div className="w-[60%] mx-auto">
             <UserAvatars />
-            {/* Imaginea de jos trebuie să rămână în interiorul div-ului */}
             <div className="w-full flex justify-center items-end overflow-hidden relative z-10">
               <Image
                 src="/Preview.png"
@@ -91,10 +84,8 @@ export default function Home() {
             <div className="w-[250px] h-[250px] blur-3xl bg-[#A800EB]/30 rounded-full absolute -bottom-10 z-10 right-52 pointer-events-none"></div>
           </div>
         </div>
-        {/* Mask effect: overflow-hidden on parent, all content stays inside rounded border */}
       </div>
-      {/* Footer jos, inafara backgroundului cu puncte */}
-      <div className="w-full flex justify-center mb-4 z-50">
+      <div className="w-full flex justify-center mb-4 ">
         <Footer />
       </div>
     </div>

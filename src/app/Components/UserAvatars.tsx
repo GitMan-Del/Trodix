@@ -37,7 +37,6 @@ export default function UserAvatars() {
     }
   ];
 
-  // Add link and ariaLabel for sponsors
   const sponsors = [
     { src: "/images/s1.png", alt: "1", link: "https://www.instagram.com/tutuianuliviu_dev?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", ariaLabel: "Sponsor 1" },
     { src: "/images/s2.png", alt: "2", link: "https://www.instagram.com/fxmasterstrading?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", ariaLabel: "Sponsor 2" },
