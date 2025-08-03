@@ -45,13 +45,13 @@ export default function Navbar() {
           
             <div className={`flex flex-col justify-between w-1/2 min-w-[300px] h-[100dvh] absolute top-0 left-0 bg-alb ${isMenuOpen ? `flex` : `hidden`} `}>
             <Image src="/logo.svg" alt="logo" width={60} height={60}  className="m-5"/>
-            <div className="flex flex-col text-sec items-left mx-5 py-5 gap-10 text-2xl font-medium">
+            <div className="flex flex-col text-sec items-left mx-5 py-5 gap-10 text-base font-medium">
                 <Link href="/">Home</Link>
                 <Link href="/Badages">Badges</Link>
                 <Link href="/about">About</Link>
                 <Link href="#footer">Footer</Link>
             </div>
-            <div className="flex flex-col gap-3 mx-5">
+            <div className="flex flex-col gap-3 mx-5 mb-5">
                     <button className="flex bg-white py-2 px-6 --border rounded-2xl text-sec text-sm">Get Started</button>
                     <button className="flex rounded-full items-center bg-alb --border justify-left px-6 gap-2 py-2">
                         <Image src="/Donate.png" alt="Donate" width={24} height={24} className="object-fill" />
