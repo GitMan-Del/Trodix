@@ -69,8 +69,8 @@ export default function UserAvatars() {
             </span>
           ))}
         </div>
-        <p className="text-sec">
-          <span className="text-prim">+4M</span> Users
+        <p className="text-sec md:block hidden">
+          <span className="text-prim ">+4M</span> Users
         </p>
       </div>
       <div className="flex flex-row-reverse items-center gap-3">
@@ -95,7 +95,7 @@ export default function UserAvatars() {
             </span>
           ))}
         </div>
-        <p className="text-sec">Sponsors</p>
+        <p className="text-sec md:block hidden">Sponsors</p>
       </div>
     </div>
   );

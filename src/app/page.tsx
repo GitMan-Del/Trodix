@@ -66,7 +66,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="md:w-[60%] w-full md:mx-auto z-40">
+          <div className="md:w-[60%] w-full md:mx-auto z-50">
             <UserAvatars />
             <div className="w-full flex justify-center items-end overflow-hidden relative z-10">
               <Image
