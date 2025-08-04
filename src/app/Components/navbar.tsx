@@ -58,7 +58,7 @@ export default function Navbar() {
                     onClick={Istoggle}
                 ></div>
                 
-                <aside className="flex flex-col justify-between w-1/2 min-w-[300px] h-[100vh] fixed top-0 left-0 bg-alb shadow-lg animate-slide ">
+                <aside className="flex flex-col justify-between w-1/2 min-w-[300px] h-[100dvh] fixed top-0 left-0 bg-alb shadow-lg animate-slide ">
                     <Image src="/logo.svg" alt="logo" width={60} height={60} className="m-5"/>
                     <div className="flex flex-col text-sec items-left mx-5 py-5 gap-10 text-base font-medium">
                         <Link href="/" onClick={Istoggle}>Home</Link>
