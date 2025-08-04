@@ -2,10 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {useState} from "react" 
+import {useState , useEffect} from "react" 
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = "hidden"
+        } else {
+            document.body.style.overflow = "auto"
+        }
+    })
 
     const Istoggle = () => {
         setIsMenuOpen(prev => !prev)
@@ -50,7 +58,7 @@ export default function Navbar() {
                     onClick={Istoggle}
                 ></div>
                 
-                <aside className="flex flex-col justify-between w-1/2 min-w-[300px] h-[100vh] fixed top-0 left-0 bg-alb shadow-lg">
+                <aside className="flex flex-col justify-between w-1/2 min-w-[300px] h-[100vh] fixed top-0 left-0 bg-alb shadow-lg animate-slide ">
                     <Image src="/logo.svg" alt="logo" width={60} height={60} className="m-5"/>
                     <div className="flex flex-col text-sec items-left mx-5 py-5 gap-10 text-base font-medium">
                         <Link href="/" onClick={Istoggle}>Home</Link>

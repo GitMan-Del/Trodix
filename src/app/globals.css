@@ -8,7 +8,7 @@
   --background: #ffffff;
   -text: #000000;
   --border: #C1C1C1;
-  --text-sec: #767676;
+  --text-sec: #444444;
 }
 
 @theme inline {
@@ -81,4 +81,19 @@ h1, h2, h3, h4, h5, h6 {
 .hover:hover{
   z-index: 40;
 
+}
+
+.animate-slide {
+  animation: slide 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translatex(-130px);
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(-0);
+  }
 }

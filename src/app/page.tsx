@@ -17,7 +17,7 @@ export default function Home() {
           unoptimized
         />
       </div>
-      <div className="absolute top-1/2 -left-10 w-[220px] h-[80px] rounded-2xl -rotate-12 animation-float z-10 pointer-events-none">
+      <div className="absolute top-1/2 -left-10 w-[220px] h-[80px] rounded-2xl -rotate-12 animation-float z-10  pointer-events-none">
         <Image
           src="/Frame 10.png"
           alt="a"
@@ -33,7 +33,7 @@ export default function Home() {
           backgroundImage: `url("data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><circle cx='1' cy='1' r='1' fill='%231E1E1E' fill-opacity='0.3' /></svg>")`
         }}
       >
-        <div className="absolute -top-3 left-1/4 w-[220px] h-[80px] rounded-2xl z-30 rotate-12 animation-float pointer-events-none">
+        <div className="absolute -top-3 left-1/4 w-[220px] h-[80px] rounded-2xl  rotate-12 animation-float pointer-events-none">
           <Image
             src="/Frame 9-1.png"
             alt="a"
@@ -42,7 +42,7 @@ export default function Home() {
             unoptimized
           />
         </div>
-        <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between z-[5]">
+        <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-between ">
           <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/2  -right-20 pointer-events-none"></div>
           <div className="w-[250px] h-[250px] blur-3xl bg-[#0023EB]/30 rounded-full absolute bottom-1/3  -right-20 pointer-events-none"></div>
           <div className="w-[300px] h-[300px] blur-3xl bg-[#A800EB]/30 rounded-full absolute bottom-1/3  -left-20 pointer-events-none"></div>
@@ -66,7 +66,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="w-[60%] mx-auto">
+          <div className="md:w-[60%] w-full md:mx-auto z-40">
             <UserAvatars />
             <div className="w-full flex justify-center items-end overflow-hidden relative z-10">
               <Image
@@ -77,11 +77,11 @@ export default function Home() {
                 height={20000}
                 unoptimized
                 className="object-contain shadow-2xl max-h-[400px] w-auto -mb-1"
-                style={{ maxWidth: "100%", height: "auto" }}
+                
               />
             </div>
-            <div className="w-[300px] h-[300px] blur-3xl bg-[#EB00D7]/20 rounded-full absolute bottom-0 z-10 left-48 pointer-events-none"></div>
-            <div className="w-[250px] h-[250px] blur-3xl bg-[#A800EB]/30 rounded-full absolute -bottom-10 z-10 right-52 pointer-events-none"></div>
+            <div className="w-[300px] h-[300px] blur-3xl bg-[#EB00D7]/20 rounded-full absolute bottom-0  left-48 pointer-events-none"></div>
+            <div className="w-[250px] h-[250px] blur-3xl bg-[#A800EB]/30 rounded-full absolute -bottom-10  right-52 pointer-events-none"></div>
           </div>
         </div>
       </div>
