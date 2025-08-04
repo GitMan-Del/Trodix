@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Footer() {
     return(
-        <div id="footer" className="w-[80%] flex items-center justify-between py-5">
+        <div id="footer" className="md:w-[80%] w-full px-2 md:px-0 flex md:flex-row flex-col md:items-center items-start justify-between py-5 gap-10 md:gapo-0">
             <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
                  <Image src="/logo.svg" alt="logo" width={50} height={50} priority />
@@ -18,7 +18,7 @@ export default function Footer() {
                  </p>
             </div>
 
-            <div className="flex flex-row gap-70">
+            <div className="flex md:flex-row flex-col md:gap-70 gap-10">
                 <ul>
                     <h2 className="font-semibold text-xl mb-4">Links</h2>
                     <li className="flex flex-1/5 flex-col gap-3">
