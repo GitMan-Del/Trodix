@@ -1,11 +1,40 @@
 
+"use client";
+
 import Link from "next/link";
 import Navbar from "./Components/navbar";
 import Image from "next/image";
 import Footer from "./Components/footer";
 import UserAvatars from "./Components/UserAvatars";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Dacă utilizatorul este autentificat, redirecționează la dashboard
+    if (status === "authenticated" && session) {
+      router.push("/dashboard");
+    }
+  }, [session, status, router]);
+
+  // Afișează loading în timp ce se verifică sesiunea
+  if (status === "loading") {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-xl">Loading...</div>
+      </div>
+    );
+  }
+
+  // Dacă utilizatorul este autentificat, nu afișa pagina principală
+  if (status === "authenticated") {
+    return null; // Componentă goală în timp ce se face redirect
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 animation-float z-10 pointer-events-none">

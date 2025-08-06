@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Protest_Strike, Poppins } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
 
 const protestStrike = Protest_Strike({
   variable: "--font-protest-strike",
@@ -41,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${protestStrike.variable} ${poppins.variable} antialiased bg-background overflow-x-hidden`}>
-        {children}
+        <SessionProvider>
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );
