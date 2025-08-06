@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import {useState , useEffect} from "react" 
+import LoginBtn from "./LoginBtn";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -22,11 +23,11 @@ export default function Navbar() {
     
     return(
         <>
-        <div className="w-full md:px-20 p-3">
+        <div className="w-full md:px-20 p-3 overflow-hidden">
             <div className="flex justify-between items-center">
                 <div className="flex items-center gap-2">
                  <Image src="/logo.svg" alt="logo" width={50} height={50} priority />
-                  <h1 className="text-3xl font">
+                  <h1 className="text-3xl font-protest-strike ">
                     <Link href="/" >TRODIX.</Link>
                   </h1>    
                 </div>
@@ -38,15 +39,17 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex flex-row gap-3">
-                    <button className="md:flex hidden bg-white py-1 px-6 --border rounded-2xl text-sec text-sm">Get Started</button>
+                    <div className="hidden md:flex">
+                    <LoginBtn />
+                    </div>
                     <button className="md:flex hidden rounded-full w-12 h-12 bg-alb --border items-center justify-center">
                         <Image src="/Donate.png" alt="Donate" width={24} height={24} className="object-fill" />
                     </button>
-                        <button onClick={Istoggle} className="md:hidden rounded-2xl bg-white flex flex-col gap-1 p-2">
+                    <button onClick={Istoggle} className="md:hidden rounded-2xl bg-white flex flex-col gap-1 p-2">
                         <div className="w-6 h-1 rounded-full bg-black"></div>
                         <div className="w-6 h-1 rounded-full bg-black"></div>
                         <div className="w-6 h-1 rounded-full bg-black"></div>
-                       </button>
+                    </button>
                 </div>
             </div>
         </div>
@@ -67,8 +70,8 @@ export default function Navbar() {
                         <Link href="#footer" onClick={Istoggle}>Footer</Link>
                     </div>
                     <div className="flex flex-col gap-3 mx-5 mb-5">
-                        <button className="flex bg-white py-2 px-6 --border rounded-2xl text-sec text-sm">Get Started</button>
-                        <button className="flex rounded-full items-center bg-alb --border justify-left px-6 gap-2 py-2">
+                        <LoginBtn />
+                        <button className="flex rounded-full items-center bg-alb --border justify-center px-6 gap-2 py-2">
                             <Image src="/Donate.png" alt="Donate" width={24} height={24} className="object-fill" />
                             <p>Donate</p>
                         </button>

@@ -8,7 +8,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2">
                  <Image src="/logo.svg" alt="logo" width={50} height={50} priority />
-                  <h1 className="text-3xl">
+                  <h1 className="text-3xl font-protest-strike">
                     <Link href="/" >TRODIX.</Link>
                   </h1>    
                 </div>
@@ -20,7 +20,7 @@ export default function Footer() {
 
             <div className="flex md:flex-row flex-col md:gap-70 gap-10">
                 <ul>
-                    <h2 className="font-semibold text-xl mb-4">Links</h2>
+                    <h2 className="font-semibold text-xl mb-4 font-protest-strike">Links</h2>
                     <li className="flex flex-1/5 flex-col gap-3">
                     <Link className="text-sec text-sm" href="/">Home</Link>
                     <Link className="text-sec text-sm" href="/">Badges</Link>
@@ -29,7 +29,7 @@ export default function Footer() {
                     </li>
                 </ul>
                 <ul>
-                    <h2 className="font-semibold text-xl mb-4">Contact</h2>
+                    <h2 className="font-semibold text-xl mb-4 font-protest-strike">Contact</h2>
                     <li className="flex flex-col gap-3">
                     <Link className="text-sec text-sm" href="email:trodix@gmail.com">trodix@gmail.com</Link>
                     <Link className="text-sec text-sm" href="tel:+40787484921">+40787484921</Link>

@@ -7,7 +7,7 @@ import UserAvatars from "./Components/UserAvatars";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <div className="absolute top-1/2 right-0 w-[220px] h-[80px] rounded-2xl rotate-12 animation-float z-10 pointer-events-none">
         <Image
           src="/Frame 9.png"
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
 
           <div className="w-full text-center mx-auto z-40">
-            <h1 className="text-6xl">
+            <h1 className="text-6xl font-protest-strike">
               A place to track, grow, and trade <br /> <span className="text-prim"> — without the noise</span>.
             </h1>
             <p className="max-w-[700px] mx-auto text-sec">
