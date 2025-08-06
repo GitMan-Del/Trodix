@@ -56,11 +56,17 @@ export default function Header () {
             {/* User Avatar */}
             <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
                 <div className="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center">
-                <Image src="/images/2.jpg" alt="Profile Image" width={100} height={100} className="w-8 h-8 rounded-full flex items-center justify-center" />
+                    <Image
+                        src={session?.user?.image ?? "/default-avatar.png"}
+                        alt="Profile Image"
+                        width={100}
+                        height={100}
+                        className="w-8 h-8 rounded-full flex items-center justify-center"
+                    />
                 </div>
                 <div className="hidden sm:block">
                     <div className="text-sm font-semibold text-gray-900">{session?.user?.name}</div>
-                    <div className="text-xs text-gray-500">Jone@example.com</div>
+                    <div className="text-xs text-gray-500">{session?.user?.email}</div>
                 </div>
             </div>
         </div>

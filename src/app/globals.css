@@ -26,6 +26,22 @@
  border: var(--border) 2px solid;
 }
 
+.--border-r {
+ border-right: var(--border) 2px solid;
+}
+
+.--border-l {
+ border-left: var(--border) 2px solid;
+}
+
+.--border-t {
+ border-top: var(--border) 2px solid;
+}
+
+.--border-b {
+ border-bottom: var(--border) 2px solid;
+}
+
 .bg-alb {
   background-color: var(--background);
 }
@@ -34,7 +50,10 @@
 }
 
 .text-prim {
-  color: #2835DE;
+  background: linear-gradient(180deg, #161D78, #2835DE);
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: inline-block;
 }
 
 button {

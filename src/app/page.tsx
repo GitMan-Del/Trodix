@@ -5,16 +5,16 @@ import Navbar from "./Components/navbar";
 import Image from "next/image";
 import Footer from "./Components/footer";
 import UserAvatars from "./Components/UserAvatars";
-// import { useSession } from "next-auth/react";
-// import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 
 
 export default function Home() {
-  // const user =  useSession
+  const user =  useSession()
   
-  // if (user()) {
-  //  redirect('/dashboard')
-  // }
+  if (user) {
+   redirect('/dashboard')
+  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

@@ -1,7 +1,17 @@
+import { redirect } from "next/navigation";
 import Header from "../Components/Dashboard/Header";
 import SideBar from "../Components/Dashboard/Sidebar";
+import { useSession } from "next-auth/react";
+
+
 
 export default function Dashboard() {
+
+    const user = useSession()
+    if (!user) {
+        redirect('/')
+    }
+        
     return(
         <div className="h-screen bg-[#F9FBFC] w-full flex">
             <SideBar />
