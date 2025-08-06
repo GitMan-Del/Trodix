@@ -4,11 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {useState , useEffect} from "react" 
 import LoginBtn from "./LoginBtn";
-import { useSession } from "next-auth/react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-    const { data: session } = useSession();
 
     useEffect(() => {
         if (isMenuOpen) {
@@ -35,9 +33,6 @@ export default function Navbar() {
                 </div>
                 <div className="md:flex text-sec hidden items-center gap-6 text-sm font-medium">
                     <Link href="/">Home</Link>
-                    {session && (
-                        <Link href="/dashboard" className="text-blue-600 font-semibold">Dashboard</Link>
-                    )}
                     <Link href="/Badages">Badges</Link>
                     <Link href="/about">About</Link>
                     <Link href="#footer">Footer</Link>
@@ -70,9 +65,6 @@ export default function Navbar() {
                     <Image src="/logo.svg" alt="logo" width={60} height={60} className="m-5"/>
                     <div className="flex flex-col text-sec items-left mx-5 py-5 gap-10 text-base font-medium">
                         <Link href="/" onClick={Istoggle}>Home</Link>
-                        {session && (
-                            <Link href="/dashboard" onClick={Istoggle} className="text-blue-600 font-semibold">Dashboard</Link>
-                        )}
                         <Link href="/Badages" onClick={Istoggle}>Badges</Link>
                         <Link href="/about" onClick={Istoggle}>About</Link>
                         <Link href="#footer" onClick={Istoggle}>Footer</Link>
