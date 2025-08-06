@@ -1,3 +1,5 @@
+"use client";
+
 import { redirect } from "next/navigation";
 import Header from "../Components/Dashboard/Header";
 import SideBar from "../Components/Dashboard/Sidebar";
