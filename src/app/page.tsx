@@ -31,9 +31,6 @@ export default function Home() {
   }
 
   // Dacă utilizatorul este autentificat, nu afișa pagina principală
-  if (status === "authenticated") {
-    return null; // Componentă goală în timp ce se face redirect
-  }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

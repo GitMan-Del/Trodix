@@ -1,6 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Header () {
+    const { data: session } = useSession();
+
+    const handleLogout = () => {
+        signOut({ callbackUrl: "/" });
+    };
     return(
         <div className="w-full h-[80px] max-h-[100px] bg-white border-b border-gray-200 flex items-center px-6 flex-row justify-between">
         
@@ -48,13 +56,42 @@ export default function Header () {
 
             {/* User Avatar */}
             <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
-                <div className="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center">
-                <Image src="/images/2.jpg" alt="Profile Image" width={100} height={100} className="w-8 h-8 rounded-full flex items-center justify-center" />
+                <div className="w-10 h-10 bg-[#D9D9D9] rounded-full flex items-center justify-center overflow-hidden">
+                    {session?.user?.image ? (
+                        <Image 
+                            src={session.user.image} 
+                            alt="Profile Image" 
+                            width={40} 
+                            height={40} 
+                            className="w-full h-full object-cover" 
+                        />
+                    ) : (
+                        <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-600 font-semibold">
+                            {session?.user?.name?.[0]?.toUpperCase() || "U"}
+                        </div>
+                    )}
                 </div>
                 <div className="hidden sm:block">
-                    <div className="text-sm font-semibold text-gray-900">John Dear</div>
-                    <div className="text-xs text-gray-500">Jone@example.com</div>
+                    <div className="text-sm font-semibold text-gray-900">
+                        {session?.user?.name || "User"}
+                    </div>
+                    <div className="text-xs text-gray-500">
+                        {session?.user?.email || "No email"}
+                    </div>
                 </div>
+                
+                {/* Logout Button */}
+                <button 
+                    onClick={handleLogout}
+                    className="ml-3 px-3 py-1 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md transition-colors"
+                    title="Logout"
+                >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <polyline points="16,17 21,12 16,7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <line x1="21" y1="12" x2="9" y2="12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
      </div>
