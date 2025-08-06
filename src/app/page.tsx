@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -6,25 +5,16 @@ import Navbar from "./Components/navbar";
 import Image from "next/image";
 import Footer from "./Components/footer";
 import UserAvatars from "./Components/UserAvatars";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
+// import { redirect } from "next/navigation";
+
 
 export default function Home() {
-  const { status } = useSession();
-
-  // Nu mai facem redirect automat la dashboard
-  // Utilizatorii pot rămâne pe pagina principală și pot accesa dashboard manual
-
-  // Afișează loading în timp ce se verifică sesiunea
-  if (status === "loading") {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl">Loading...</div>
-      </div>
-    );
-  }
-
-  // Acum toți utilizatorii pot vedea pagina principală
-  // Utilizatorii autentificați vor vedea butonul de logout în navbar
+  // const user =  useSession
+  
+  // if (user()) {
+  //  redirect('/dashboard')
+  // }
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

@@ -1,6 +1,13 @@
+"use client"
+
 import Image from "next/image";
+import { useSession } from "next-auth/react";
+
 
 export default function Header () {
+
+     const { data: session} = useSession();
+
     return(
         <div className="w-full h-[80px] max-h-[100px] bg-white border-b border-gray-200 flex items-center px-6 flex-row justify-between">
         
@@ -52,7 +59,7 @@ export default function Header () {
                 <Image src="/images/2.jpg" alt="Profile Image" width={100} height={100} className="w-8 h-8 rounded-full flex items-center justify-center" />
                 </div>
                 <div className="hidden sm:block">
-                    <div className="text-sm font-semibold text-gray-900">John Dear</div>
+                    <div className="text-sm font-semibold text-gray-900">{session?.user?.name}</div>
                     <div className="text-xs text-gray-500">Jone@example.com</div>
                 </div>
             </div>
