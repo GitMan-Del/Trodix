@@ -29,7 +29,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       else if (new URL(url).origin === baseUrl) return url;
       return `${baseUrl}/dashboard`;
     },
-    async signIn({ user, account, profile }) {
+    async signIn() {
       // Allow all sign ins
       return true;
     },
