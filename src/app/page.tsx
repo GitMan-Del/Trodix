@@ -7,19 +7,12 @@ import Image from "next/image";
 import Footer from "./Components/footer";
 import UserAvatars from "./Components/UserAvatars";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function Home() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+  const { status } = useSession();
 
-  useEffect(() => {
-    // Dacă utilizatorul este autentificat, redirecționează la dashboard
-    if (status === "authenticated" && session) {
-      router.push("/dashboard");
-    }
-  }, [session, status, router]);
+  // Nu mai facem redirect automat la dashboard
+  // Utilizatorii pot rămâne pe pagina principală și pot accesa dashboard manual
 
   // Afișează loading în timp ce se verifică sesiunea
   if (status === "loading") {
@@ -30,7 +23,8 @@ export default function Home() {
     );
   }
 
-  // Dacă utilizatorul este autentificat, nu afișa pagina principală
+  // Acum toți utilizatorii pot vedea pagina principală
+  // Utilizatorii autentificați vor vedea butonul de logout în navbar
 
   return (
     <div className="flex flex-col min-h-screen bg-white">

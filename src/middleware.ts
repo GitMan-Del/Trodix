@@ -12,10 +12,8 @@ export default auth((req) => {
     pathname.startsWith(route) || pathname === route
   )
 
-  // Dacă utilizatorul este autentificat și încearcă să acceseze pagina principală
-  if (req.auth && pathname === "/") {
-    return NextResponse.redirect(new URL("/dashboard", req.url))
-  }
+  // Permite accesul la pagina principală pentru toți utilizatorii
+  // Nu mai facem redirect forțat de pe pagina principală
 
   // Dacă utilizatorul nu este autentificat și încearcă să acceseze o rută protejată
   if (!req.auth && !isPublicRoute) {
