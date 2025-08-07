@@ -73,8 +73,10 @@ export default function Header () {
                 </div>
                 ) : (
                     <>
+                    <div className="flex flex-col gap-3">
                     <h1 className="text-sm font-semibold text-gray-900">User not found</h1>
                     <p className="text-xs text-gray-500">No data...</p>
+                    </div>
                     </>
                 )
             } 
