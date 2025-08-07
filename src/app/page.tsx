@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 export default function Home() {
   const user =  useSession()
   
-  if (user) {
+  if (!user) {
    redirect('/dashboard')
   }
 
