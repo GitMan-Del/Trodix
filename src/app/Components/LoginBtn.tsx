@@ -4,5 +4,5 @@
 import { signIn } from "next-auth/react"
  
 export default function SignIn() {
-  return <button onClick={() => signIn("google", { redirectTo: "/dashboard" })}>Login</button>
+  return <button className="bg-white px-6 py-2 --border" onClick={() => signIn("google", { redirectTo: "/dashboard" })}>Get Started</button>
 }
