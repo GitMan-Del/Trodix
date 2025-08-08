@@ -6,15 +6,12 @@ export default auth((req) => {
 
   // Rutele care nu necesită autentificare
 
-  // Rutele care trebuie să fie protejate (ex: dashboard)
   const protectedRoutes = ["/dashboard"]
 
-  // Verifică dacă ruta este protejată (ex: dashboard sau subrute)
   const isProtectedRoute = protectedRoutes.some(route =>
     pathname === route || pathname.startsWith(`${route}/`)
   )
 
-  // Dacă utilizatorul nu este autentificat și încearcă să acceseze o rută protejată
   if (!req.auth && isProtectedRoute) {
     return NextResponse.redirect(new URL("/", req.url))
   }
