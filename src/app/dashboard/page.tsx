@@ -24,16 +24,11 @@ export default function Dashboard() {
         <div className="h-screen bg-[#F9FBFC] w-full flex relative">
             <SideBar />
             <div className="flex-1 flex flex-col">
-                <Header />
+                <Header onOpenForm={function (): void {
+                    throw new Error("Function not implemented.");
+                } } />
                 <button onClick={() => setisOpen(true)}>aaaaa</button>
-                { isOpen ? (
-                    <>
-                   <CreateTradeForm />
-                    </>
-                ) : (
-                    <>
-                    <h2>bbbbb</h2>
-                    </>
+                { isOpen ? (<CreateTradeForm />) : (<h2>bbbbb</h2>
                 )
             };
                 <main className="flex-1 p-6">
