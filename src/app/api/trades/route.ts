@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/utils/supabase/server';
+import { supabaseAdmin } from '@/utils/supabase/server';
 import { auth } from '../../backend/auth'; // din NextAuth v5 config
 
 export async function POST(req: Request) {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
       const ext = (file.name.split('.').pop() || 'jpg').toLowerCase();
       const path = `u_${userId}/${crypto.randomUUID()}.${ext}`;
 
-      const { error: upErr } = await supabase
+      const { error: upErr } = await supabaseAdmin
         .storage
         .from('trade-photos')
         .upload(path, file, { upsert: false, contentType: file.type });
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
     }
 
     // Inserare în DB (folosim admin pe server și validăm noi user-ul)
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from('trades')
       .insert({
         user_id: userId,
