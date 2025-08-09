@@ -24,11 +24,13 @@ export default function Dashboard() {
         <div className="h-screen bg-[#F9FBFC] w-full flex relative">
             <SideBar />
             <div className="flex-1 flex flex-col">
-                <Header onOpenForm={() => setisOpen(true)} />
-                { isOpen ? (<CreateTradeForm />) : (
-                <main className="flex-1 p-6">
-                    {/* Dashboard content */}
-                    <h1 className="text-2xl font-semibold">Dashboard</h1>
+                <Header setisOpen={() => setisOpen(true)} />
+                {isOpen ? (
+                    <CreateTradeForm />
+                ) : (
+                    <main className="flex-1 p-6">
+                        {/* Dashboard content */}
+                        <h1 className="text-2xl font-semibold">Dashboard</h1>
                     <SignOut />
                 </main>
                 )
