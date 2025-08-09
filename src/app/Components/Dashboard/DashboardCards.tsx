@@ -144,74 +144,93 @@ function SkeletonListCard() {
 
 export default function DashboardCards() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-      {/* Row 1 */}
-      <StatCard
-        title="Profit made"
-        value="$1320.34"
-        subtitle="+34% ↑"
-        icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
-            <path d="M3 3v18h18" /><path d="M7 13l3-3 4 4 5-5" />
-          </svg>
-        }
-      />
-      <StatCard
-        title="Lots Used"
-        value="12,30.3"
-        icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
-            <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
-          </svg>
-        }
-      />
-      <StatCard
-        title="Avg. R:R"
-        value="1:4.21"
-        icon={
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
-            <path d="M21 15V6a2 2 0 0 0-2-2H6" /><path d="M3 9v9a2 2 0 0 0 2 2h13" /><path d="M7 12h10M7 16h6" />
-          </svg>
-        }
-      />
+    <div className="grid grid-cols-1 sm:grid-cols-6 xl:grid-cols-12 gap-5 auto-rows-[10rem]">
+      {/* Top stats - staggered across grid */}
+      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+        <StatCard
+          title="Profit made"
+          value="$1320.34"
+          subtitle="+34% ↑"
+          icon={
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+              <path d="M3 3v18h18" /><path d="M7 13l3-3 4 4 5-5" />
+            </svg>
+          }
+        />
+      </div>
+      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+        <StatCard
+          title="Lots Used"
+          value="12,30.3"
+          icon={
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+              <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
+            </svg>
+          }
+        />
+      </div>
+      <div className="sm:col-span-6 xl:col-span-4 row-span-1">
+        <StatCard
+          title="Avg. R:R"
+          value="1:4.21"
+          icon={
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+              <path d="M21 15V6a2 2 0 0 0-2-2H6" /><path d="M3 9v9a2 2 0 0 0 2 2h13" /><path d="M7 12h10M7 16h6" />
+            </svg>
+          }
+        />
+      </div>
 
-      {/* Row 2 */}
-      <CardContainer className="p-5 flex items-center gap-6">
-        <div className="space-y-3">
-          <div className="text-sm font-medium text-gray-700">Profit Statistic</div>
-          <Legend />
-        </div>
-        <div className="ml-auto">
-          <Donut percent={78} />
-        </div>
-      </CardContainer>
-
-      <CardContainer className="p-5">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-            <div className="text-sm font-medium text-gray-700">Total Trades</div>
+      {/* Middle: Donut stats, Trades/Loss, Friends tall card */}
+      <div className="sm:col-span-3 xl:col-span-4 row-span-2">
+        <CardContainer className="p-5 h-full flex items-center gap-6">
+          <div className="space-y-3">
+            <div className="text-sm font-medium text-gray-700">Profit Statistic</div>
+            <Legend />
           </div>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">+203 ↑</span>
-        </div>
-        <div className="mt-3 text-3xl font-semibold">1034</div>
-      </CardContainer>
-
-      <CardContainer className="p-5">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-            <div className="text-sm font-medium text-gray-700">Total loss</div>
+          <div className="ml-auto">
+            <Donut percent={78} />
           </div>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600">+203 →</span>
-        </div>
-        <div className="mt-3 text-3xl font-semibold text-gray-900">-1043$</div>
-      </CardContainer>
+        </CardContainer>
+      </div>
 
-      {/* Row 3 */}
-      <TotalProfitCard />
-      <SkeletonListCard />
-      <FriendsCard />
+      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+        <CardContainer className="p-5 h-full">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
+              <div className="text-sm font-medium text-gray-700">Total Trades</div>
+            </div>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">+203 ↑</span>
+          </div>
+          <div className="mt-3 text-3xl font-semibold">1034</div>
+        </CardContainer>
+      </div>
+
+      <div className="sm:col-span-3 xl:col-span-4 row-span-3">
+        <FriendsCard />
+      </div>
+
+      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+        <CardContainer className="p-5 h-full">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
+              <div className="text-sm font-medium text-gray-700">Total loss</div>
+            </div>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600">+203 →</span>
+          </div>
+          <div className="mt-3 text-3xl font-semibold text-gray-900">-1043$</div>
+        </CardContainer>
+      </div>
+
+      {/* Bottom: Wide profit chart and list */}
+      <div className="sm:col-span-6 xl:col-span-7 row-span-2">
+        <TotalProfitCard />
+      </div>
+      <div className="sm:col-span-6 xl:col-span-5 row-span-2">
+        <SkeletonListCard />
+      </div>
     </div>
   );
 }
