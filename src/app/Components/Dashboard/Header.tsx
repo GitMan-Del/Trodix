@@ -38,7 +38,7 @@ export default function Header ({setisOpen}: {setisOpen: () => void }) {
             </button>
 
             {/* Notifications Icon */}
-            <button onClick={setisOpen}  aria-label="Notifications" className="p-2 hover:bg-gray-100 rounded-lg transition-colors relative">
+            <button aria-label="Notifications" className="p-2 hover:bg-gray-100 rounded-lg transition-colors relative">
                 <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.24986 3.22222C9.55995 3.22222 11.4327 5.21207 11.4327 7.66667V9.65742C11.4327 10.0928 11.5831 10.5131 11.8553 10.8385L12.9224 12.1142C13.6418 12.974 13.0673 14.3333 11.9846 14.3333H2.51511C1.43237 14.3333 0.857896 12.974 1.57722 12.1142L2.64441 10.8385C2.91664 10.5131 3.06702 10.0928 3.06702 9.65742L3.06704 7.66667C3.06704 5.21207 4.93975 3.22222 7.24986 3.22222ZM7.24986 3.22222V1M6.41321 17C6.41321 17 7.24984 18 8.24852 17" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -47,7 +47,7 @@ export default function Header ({setisOpen}: {setisOpen: () => void }) {
             </button>
 
               {/* Create Icon */}
-              <button aria-label="Create Trade" className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+              <button onClick={setisOpen} aria-label="Create Trade" className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.21533 9H12.2074M9.21135 6V12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M9.21106 17C13.6235 17 17.2004 13.4183 17.2004 9C17.2004 4.58172 13.6235 1 9.21106 1C4.79865 1 1.22168 4.58172 1.22168 9C1.22168 13.4183 4.79865 17 9.21106 17Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>

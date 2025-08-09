@@ -8,7 +8,12 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 
-export default function CreateTradeForm() {
+type CreateTradeFormProps = {
+  onClose?: () => void;
+  onSuccess?: () => void;
+};
+
+export default function CreateTradeForm({ onClose, onSuccess }: CreateTradeFormProps) {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
@@ -33,6 +38,7 @@ export default function CreateTradeForm() {
       setMessage({ type: 'success', text: `Trade salvat cu ID: ${json.trade.id}` });
       e.currentTarget.reset(); // curăță formularul
       setPreview(null);
+      if (onSuccess) onSuccess();
     } else {
       setMessage({ type: 'error', text: `Eroare: ${json.error}` });
     }
@@ -57,10 +63,25 @@ export default function CreateTradeForm() {
   }
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-[500px] mx-auto relative">
-      <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
-        <LucideImage className="h-7 w-7 text-blue-500" /> Adaugă un Trade
-      </h2>
+    <div className="bg-white shadow-xl rounded-xl p-6 sm:p-8 w-full max-w-[560px] mx-auto relative ring-1 ring-black/5">
+      <div className="flex items-start justify-between mb-6">
+        <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-blue-50">
+            <LucideImage className="h-5 w-5 text-blue-600" />
+          </span>
+          Adaugă un Trade
+        </h2>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Închide"
+            className="rounded-md p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition"
+          >
+            <LucideX className="h-5 w-5" />
+          </button>
+        )}
+      </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Pair <span className="text-red-500">*</span></label>
@@ -151,7 +172,7 @@ export default function CreateTradeForm() {
         <button
           type="submit"
           disabled={loading}
-          className={`flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition text-white p-2 rounded font-semibold shadow ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
+          className={`flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 transition text-white p-2 rounded-lg font-semibold shadow ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
         >
           {loading && (
             <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
