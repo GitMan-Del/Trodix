@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { SignOut } from "../Components/Signout";
 import { useState } from "react";
 import CreateTradeForm from "../Components/Dashboard/CreateTradeForm";
+import DashboardCards from "../Components/Dashboard/DashboardCards";
 
 
 
@@ -25,10 +26,13 @@ export default function Dashboard() {
             <SideBar />
             <div className="flex-1 flex flex-col">
                 <Header setisOpen={() => setisOpen(true)} />
-                <main className="flex-1 p-6">
+                <main className="flex-1 p-6 space-y-6">
                     {/* Dashboard content */}
-                    <h1 className="text-2xl font-semibold">Dashboard</h1>
-                    <SignOut />
+                    <div className="flex items-center justify-between">
+                        <h1 className="text-2xl font-semibold">Dashboard</h1>
+                        <SignOut />
+                    </div>
+                    <DashboardCards />
                 </main>
 
                 {isOpen && (
