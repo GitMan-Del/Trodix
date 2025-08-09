@@ -11,28 +11,29 @@ type StatCardProps = {
 
 function CardContainer({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className={`bg-white border border-gray-200 rounded-xl shadow-sm ${className}`}>{children}</div>
+    <div
+      className={`bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md transition-shadow ${className}`}
+    >
+      {children}
+    </div>
   );
 }
 
 function StatCard({ title, value, icon, subtitle }: StatCardProps) {
   return (
-    <CardContainer className="p-5">
-      <div className="flex items-start justify-between">
+    <CardContainer className="p-4">
+      <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-gray-700">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-50 border border-gray-200 text-gray-700">
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-50 border border-gray-200 text-gray-700">
             {icon}
           </span>
-          <span className="text-sm font-medium">{title}</span>
+          <span className="text-[13px] font-medium">{title}</span>
         </div>
-        <span className="h-2 w-2 rounded-full bg-gray-300" />
+        {subtitle && (
+          <span className="text-[11px] px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-600 border border-blue-100">{subtitle}</span>
+        )}
       </div>
-      <div className="mt-3 text-2xl font-semibold tracking-tight">{value}</div>
-      {subtitle && (
-        <div className="mt-2 inline-flex items-center gap-2 text-xs text-gray-500">
-          <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">{subtitle}</span>
-        </div>
-      )}
+      <div className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">{value}</div>
     </CardContainer>
   );
 }
@@ -40,18 +41,18 @@ function StatCard({ title, value, icon, subtitle }: StatCardProps) {
 function Donut({ percent = 78 }: { percent?: number }) {
   const clamped = Math.min(100, Math.max(0, percent));
   return (
-    <div className="relative h-32 w-32">
+    <div className="relative h-28 w-28">
       <div
         className="absolute inset-0 rounded-full"
         style={{
           background: `conic-gradient(#2563eb 0% ${clamped * 0.78}%, #ef4444 ${clamped * 0.78}% ${clamped}%, #e5e7eb ${clamped}% 100%)`,
         }}
       />
-      <div className="absolute inset-2 rounded-full bg-white border border-gray-200" />
+      <div className="absolute inset-2 rounded-full bg-white border border-gray-100" />
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center">
-          <div className="text-xl font-bold">{clamped}%</div>
-          <div className="text-xs text-gray-500">Winrate</div>
+          <div className="text-lg font-semibold">{clamped}%</div>
+          <div className="text-[11px] text-gray-500">Winrate</div>
         </div>
       </div>
     </div>
@@ -75,26 +76,23 @@ function TotalProfitCard() {
   const bars = [18, 80, 25, 55, 60, 62, 75];
   const labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return (
-    <CardContainer className="p-5">
+    <CardContainer className="p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-gray-700">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gray-50 border border-gray-200">$
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-50 border border-gray-200">$
           </span>
           <div>
-            <div className="text-sm font-medium">Total Profit</div>
-            <div className="text-xs text-gray-500">+34% ↑ · +300$</div>
+            <div className="text-[13px] font-medium">Total Profit</div>
+            <div className="text-[11px] text-gray-500">+34% ↑ · +300$</div>
           </div>
         </div>
-        <button className="text-xs px-2 py-1 rounded-md border border-gray-200 hover:bg-gray-50">Monthly ▾</button>
+        <button className="text-[11px] px-2 py-1 rounded-md border border-gray-200 hover:bg-gray-50">Monthly ▾</button>
       </div>
-      <div className="mt-5 grid grid-cols-7 gap-3 items-end h-48">
+      <div className="mt-4 grid grid-cols-7 gap-2 items-end h-40">
         {bars.map((h, i) => (
           <div key={i} className="flex flex-col items-center gap-2">
-            <div
-              className={`w-8 rounded-md ${i === 2 ? "bg-blue-600" : "bg-gray-300"}`}
-              style={{ height: `${h}%` }}
-            />
-            <div className="text-xs text-gray-500">{labels[i]}</div>
+            <div className={`w-5 rounded-md ${i === 2 ? "bg-blue-600" : "bg-gray-300"}`} style={{ height: `${h}%` }} />
+            <div className="text-[11px] text-gray-500">{labels[i]}</div>
           </div>
         ))}
       </div>
@@ -110,19 +108,19 @@ function FriendsCard() {
     { name: "C. Antonio", tag: "+1000$", color: "text-blue-600", badgeBg: "bg-blue-50" },
   ];
   return (
-    <CardContainer className="p-5">
-      <div className="text-sm font-medium text-gray-700 mb-4">Friends</div>
-      <div className="space-y-3">
+    <CardContainer className="p-4">
+      <div className="text-[13px] font-medium text-gray-700 mb-3">Friends</div>
+      <div className="space-y-2.5">
         {friends.map((f) => (
           <div key={f.name} className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-full bg-gray-200" />
+              <div className="h-8 w-8 rounded-full bg-gray-200 ring-1 ring-gray-300/50" />
               <div>
-                <div className="text-sm font-medium text-gray-900">{f.name}</div>
-                <div className="text-xs text-gray-500">Beginner</div>
+                <div className="text-sm font-medium text-gray-900 leading-5">{f.name}</div>
+                <div className="text-[11px] text-gray-500">Beginner</div>
               </div>
             </div>
-            <span className={`text-xs px-2 py-1 rounded-full ${f.badgeBg} ${f.color}`}>{f.tag}</span>
+            <span className={`text-[11px] px-2 py-0.5 rounded-full border ${f.badgeBg} ${f.color} border-current/10`}>{f.tag}</span>
           </div>
         ))}
       </div>
@@ -132,10 +130,10 @@ function FriendsCard() {
 
 function SkeletonListCard() {
   return (
-    <CardContainer className="p-5">
-      <div className="space-y-3">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="h-10 rounded-md bg-gray-100 border border-gray-200" />
+    <CardContainer className="p-4">
+      <div className="space-y-2.5">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <div key={i} className="h-8 rounded-md bg-gray-100 border border-gray-100" />
         ))}
       </div>
     </CardContainer>
@@ -144,7 +142,7 @@ function SkeletonListCard() {
 
 export default function DashboardCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-6 xl:grid-cols-12 gap-5 auto-rows-[10rem]">
+    <div className="grid grid-cols-1 sm:grid-cols-6 xl:grid-cols-12 gap-4 auto-rows-[9rem]">
       {/* Top stats - staggered across grid */}
       <div className="sm:col-span-3 xl:col-span-4 row-span-1">
         <StatCard
@@ -183,9 +181,9 @@ export default function DashboardCards() {
 
       {/* Middle: Donut stats, Trades/Loss, Friends tall card */}
       <div className="sm:col-span-3 xl:col-span-4 row-span-2">
-        <CardContainer className="p-5 h-full flex items-center gap-6">
+        <CardContainer className="p-4 h-full flex items-center gap-4">
           <div className="space-y-3">
-            <div className="text-sm font-medium text-gray-700">Profit Statistic</div>
+            <div className="text-[13px] font-medium text-gray-700">Profit Statistic</div>
             <Legend />
           </div>
           <div className="ml-auto">
@@ -195,15 +193,15 @@ export default function DashboardCards() {
       </div>
 
       <div className="sm:col-span-3 xl:col-span-4 row-span-1">
-        <CardContainer className="p-5 h-full">
+        <CardContainer className="p-4 h-full">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-              <div className="text-sm font-medium text-gray-700">Total Trades</div>
+              <div className="text-[13px] font-medium text-gray-700">Total Trades</div>
             </div>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600">+203 ↑</span>
+            <span className="text-[11px] px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 border border-blue-100">+203 ↑</span>
           </div>
-          <div className="mt-3 text-3xl font-semibold">1034</div>
+          <div className="mt-2 text-2xl font-semibold">1034</div>
         </CardContainer>
       </div>
 
@@ -212,15 +210,15 @@ export default function DashboardCards() {
       </div>
 
       <div className="sm:col-span-3 xl:col-span-4 row-span-1">
-        <CardContainer className="p-5 h-full">
+        <CardContainer className="p-4 h-full">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-              <div className="text-sm font-medium text-gray-700">Total loss</div>
+              <div className="text-[13px] font-medium text-gray-700">Total loss</div>
             </div>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-red-50 text-red-600">+203 →</span>
+            <span className="text-[11px] px-2 py-0.5 rounded-md bg-red-50 text-red-600 border border-red-100">+203 →</span>
           </div>
-          <div className="mt-3 text-3xl font-semibold text-gray-900">-1043$</div>
+          <div className="mt-2 text-2xl font-semibold text-gray-900">-1043$</div>
         </CardContainer>
       </div>
 
