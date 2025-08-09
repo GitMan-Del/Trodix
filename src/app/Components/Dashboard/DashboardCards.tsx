@@ -7,6 +7,9 @@ type StatCardProps = {
   value: string;
   icon?: React.ReactNode;
   subtitle?: string;
+  subtitleClassName?: string;
+  valueClassName?: string;
+  checkbox?: boolean;
 };
 
 function CardContainer({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -19,132 +22,46 @@ function CardContainer({ children, className = "" }: { children: React.ReactNode
   );
 }
 
-function StatCard({ title, value, icon, subtitle }: StatCardProps) {
+function StatCard({
+  title,
+  value,
+  icon,
+  subtitle,
+  subtitleClassName = "bg-blue-50 text-blue-600 border-blue-100",
+  valueClassName = "text-gray-900",
+  checkbox = false,
+}: StatCardProps) {
+  // Consistent increased padding for all cards
   return (
-    <CardContainer className="p-4">
-      <div className="flex items-center justify-between">
+    <CardContainer className="px-6 py-5">
+      <div className="flex items-center gap-2 justify-between">
         <div className="flex items-center gap-2 text-gray-700">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-50 border border-gray-200 text-gray-700">
-            {icon}
-          </span>
+          {checkbox && <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />}
+          {icon && (
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-50 border border-gray-200 text-gray-700">
+              {icon}
+            </span>
+          )}
           <span className="text-[13px] font-medium">{title}</span>
         </div>
         {subtitle && (
-          <span className="text-[11px] px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-600 border border-blue-100">{subtitle}</span>
+          <span
+            className={`text-[11px] px-2 py-0.5 rounded-md border ${subtitleClassName}`}
+          >
+            {subtitle}
+          </span>
         )}
       </div>
-      <div className="mt-2 text-xl sm:text-2xl font-semibold tracking-tight text-gray-900">{value}</div>
-    </CardContainer>
-  );
-}
-
-function Donut({ percent = 78 }: { percent?: number }) {
-  const clamped = Math.min(100, Math.max(0, percent));
-  return (
-    <div className="relative h-28 w-28">
-      <div
-        className="absolute inset-0 rounded-full"
-        style={{
-          background: `conic-gradient(#2563eb 0% ${clamped * 0.78}%, #ef4444 ${clamped * 0.78}% ${clamped}%, #e5e7eb ${clamped}% 100%)`,
-        }}
-      />
-      <div className="absolute inset-2 rounded-full bg-white border border-gray-100" />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-lg font-semibold">{clamped}%</div>
-          <div className="text-[11px] text-gray-500">Winrate</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Legend() {
-  return (
-    <div className="space-y-2 text-sm">
-      <div className="flex items-center gap-2 text-gray-700">
-        <span className="h-2.5 w-2.5 rounded-full bg-blue-600" /> Profit
-      </div>
-      <div className="flex items-center gap-2 text-gray-700">
-        <span className="h-2.5 w-2.5 rounded-full bg-red-500" /> Lose
-      </div>
-    </div>
-  );
-}
-
-function TotalProfitCard() {
-  const bars = [18, 80, 25, 55, 60, 62, 75];
-  const labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  return (
-    <CardContainer className="p-4">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-gray-700">
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-md bg-gray-50 border border-gray-200">$
-          </span>
-          <div>
-            <div className="text-[13px] font-medium">Total Profit</div>
-            <div className="text-[11px] text-gray-500">+34% ↑ · +300$</div>
-          </div>
-        </div>
-        <button className="text-[11px] px-2 py-1 rounded-md border border-gray-200 hover:bg-gray-50">Monthly ▾</button>
-      </div>
-      <div className="mt-4 grid grid-cols-7 gap-2 items-end h-40">
-        {bars.map((h, i) => (
-          <div key={i} className="flex flex-col items-center gap-2">
-            <div className={`w-5 rounded-md ${i === 2 ? "bg-blue-600" : "bg-gray-300"}`} style={{ height: `${h}%` }} />
-            <div className="text-[11px] text-gray-500">{labels[i]}</div>
-          </div>
-        ))}
-      </div>
-    </CardContainer>
-  );
-}
-
-function FriendsCard() {
-  const friends = [
-    { name: "C. Gabriel", tag: "+1000$", color: "text-blue-600", badgeBg: "bg-blue-50" },
-    { name: "O. Darius", tag: "+1000$", color: "text-blue-600", badgeBg: "bg-blue-50" },
-    { name: "T. Liviu", tag: "-300$", color: "text-red-600", badgeBg: "bg-red-50" },
-    { name: "C. Antonio", tag: "+1000$", color: "text-blue-600", badgeBg: "bg-blue-50" },
-  ];
-  return (
-    <CardContainer className="p-4">
-      <div className="text-[13px] font-medium text-gray-700 mb-3">Friends</div>
-      <div className="space-y-2.5">
-        {friends.map((f) => (
-          <div key={f.name} className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="h-8 w-8 rounded-full bg-gray-200 ring-1 ring-gray-300/50" />
-              <div>
-                <div className="text-sm font-medium text-gray-900 leading-5">{f.name}</div>
-                <div className="text-[11px] text-gray-500">Beginner</div>
-              </div>
-            </div>
-            <span className={`text-[11px] px-2 py-0.5 rounded-full border ${f.badgeBg} ${f.color} border-current/10`}>{f.tag}</span>
-          </div>
-        ))}
-      </div>
-    </CardContainer>
-  );
-}
-
-function SkeletonListCard() {
-  return (
-    <CardContainer className="p-4">
-      <div className="space-y-2.5">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-8 rounded-md bg-gray-100 border border-gray-100" />
-        ))}
-      </div>
+      <div className={`mt-3 text-xl sm:text-2xl font-semibold tracking-tight ${valueClassName}`}>{value}</div>
     </CardContainer>
   );
 }
 
 export default function DashboardCards() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-6 xl:grid-cols-12 gap-4 auto-rows-[9rem]">
+    <div className="w-full flex gap-3">
       {/* Top stats - staggered across grid */}
-      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+      <div>
         <StatCard
           title="Profit made"
           value="$1320.34"
@@ -156,7 +73,7 @@ export default function DashboardCards() {
           }
         />
       </div>
-      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
+      <div>
         <StatCard
           title="Lots Used"
           value="12,30.3"
@@ -167,10 +84,10 @@ export default function DashboardCards() {
           }
         />
       </div>
-      <div className="sm:col-span-6 xl:col-span-4 row-span-1">
+      <div>
         <StatCard
           title="Avg. R:R"
-          value="1:4.21"
+          value="4.21"
           icon={
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
               <path d="M21 15V6a2 2 0 0 0-2-2H6" /><path d="M3 9v9a2 2 0 0 0 2 2h13" /><path d="M7 12h10M7 16h6" />
@@ -178,59 +95,27 @@ export default function DashboardCards() {
           }
         />
       </div>
-
-      {/* Middle: Donut stats, Trades/Loss, Friends tall card */}
-      <div className="sm:col-span-3 xl:col-span-4 row-span-2">
-        <CardContainer className="p-4 h-full flex items-center gap-4">
-          <div className="space-y-3">
-            <div className="text-[13px] font-medium text-gray-700">Profit Statistic</div>
-            <Legend />
-          </div>
-          <div className="ml-auto">
-            <Donut percent={78} />
-          </div>
-        </CardContainer>
+      <div>
+        <StatCard
+          title="Total Trades"
+          value="1034"
+          subtitle="+203 ↑"
+          checkbox={true}
+        />
       </div>
-
-      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
-        <CardContainer className="p-4 h-full">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-              <div className="text-[13px] font-medium text-gray-700">Total Trades</div>
-            </div>
-            <span className="text-[11px] px-2 py-0.5 rounded-md bg-blue-50 text-blue-600 border border-blue-100">+203 ↑</span>
-          </div>
-          <div className="mt-2 text-2xl font-semibold">1034</div>
-        </CardContainer>
-      </div>
-
-      <div className="sm:col-span-3 xl:col-span-4 row-span-3">
-        <FriendsCard />
-      </div>
-
-      <div className="sm:col-span-3 xl:col-span-4 row-span-1">
-        <CardContainer className="p-4 h-full">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <input type="checkbox" className="h-4 w-4 rounded border-gray-300" />
-              <div className="text-[13px] font-medium text-gray-700">Total loss</div>
-            </div>
-            <span className="text-[11px] px-2 py-0.5 rounded-md bg-red-50 text-red-600 border border-red-100">+203 →</span>
-          </div>
-          <div className="mt-2 text-2xl font-semibold text-gray-900">-1043$</div>
-        </CardContainer>
-      </div>
-
-      {/* Bottom: Wide profit chart and list */}
-      <div className="sm:col-span-6 xl:col-span-7 row-span-2">
-        <TotalProfitCard />
-      </div>
-      <div className="sm:col-span-6 xl:col-span-5 row-span-2">
-        <SkeletonListCard />
+      <div>
+        <StatCard
+          title="Total loss"
+          value="-1043$"
+          subtitle="+203 →"
+          subtitleClassName="bg-red-50 text-red-600 border-red-100"
+          valueClassName="text-gray-900"
+          checkbox={true}
+        />
       </div>
     </div>
   );
 }
+
 
 

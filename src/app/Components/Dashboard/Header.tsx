@@ -74,7 +74,7 @@ export default function Header ({setisOpen}: {setisOpen: () => void }) {
                 </div>
                 ) : (
                     <>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
                     <h1 className="text-sm font-semibold text-gray-900">User not found</h1>
                     <p className="text-xs text-gray-500">No data...</p>
                     </div>

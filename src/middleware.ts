@@ -6,15 +6,15 @@ export default auth((req) => {
 
   // Rutele care nu necesită autentificare
 
-  const protectedRoutes = ["/dashboard"]
+  // const protectedRoutes = ["/dashboard"]
 
-  const isProtectedRoute = protectedRoutes.some(route =>
-    pathname === route || pathname.startsWith(`${route}/`)
-  )
+  // const isProtectedRoute = protectedRoutes.some(route =>
+  //   pathname === route || pathname.startsWith(`${route}/`)
+  // )
 
-  if (!req.auth && isProtectedRoute) {
-    return NextResponse.redirect(new URL("/", req.url))
-  }
+  // if (!req.auth && isProtectedRoute) {
+  //   return NextResponse.redirect(new URL("/", req.url))
+  // }
 
   return NextResponse.next()
 })

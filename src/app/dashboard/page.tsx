@@ -1,22 +1,23 @@
 "use client";
 
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 import Header from "../Components/Dashboard/Header";
 import SideBar from "../Components/Dashboard/Sidebar";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { SignOut } from "../Components/Signout";
 import { useState } from "react";
 import CreateTradeForm from "../Components/Dashboard/CreateTradeForm";
 import DashboardCards from "../Components/Dashboard/DashboardCards";
+import FriendsSidebar from "../Components/Dashboard/FriendsSidebar";
 
 
 
 export default function Dashboard() {
 
-    const user = useSession()
-    if (!user) {
-        redirect('/')
-    }
+    // const user = useSession()
+    // if (!user) {
+    //     redirect('/')
+    // }
 
     const [isOpen , setisOpen] = useState(false);
 
@@ -24,16 +25,23 @@ export default function Dashboard() {
     return(
         <div className="h-screen bg-[#F9FBFC] w-full flex relative">
             <SideBar />
+            
             <div className="flex-1 flex flex-col">
                 <Header setisOpen={() => setisOpen(true)} />
                 <main className="flex-1 p-6 space-y-6">
-                    {/* Dashboard content */}
                     <div className="flex items-center justify-between">
                         <h1 className="text-2xl font-semibold">Dashboard</h1>
                         <SignOut />
                     </div>
-                    <DashboardCards />
+                    <div className="w-full">
+                            {/* Top stats */}
+                            <DashboardCards />
+                    </div>
                 </main>
+
+              
+              
+
 
                 {isOpen && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -47,7 +55,10 @@ export default function Dashboard() {
                         </div>
                     </div>
                 )}
+
+            
             </div>
+            <FriendsSidebar />
         </div>
     );
 
